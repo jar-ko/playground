@@ -1,3 +1,5 @@
+val jakartaWsRsApiVersion: String by project
+
 dependencies {
-    implementation("jakarta.ws.rs:jakarta.ws.rs-api:2.1.6")
+    implementation("jakarta.ws.rs:jakarta.ws.rs-api:${jakartaWsRsApiVersion}")
 }
