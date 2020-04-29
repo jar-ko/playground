@@ -13,7 +13,6 @@ subprojects {
     apply(plugin = "org.jetbrains.kotlin.jvm")
 
     group = "com.github.jarko"
-    version = "0.0.1-SNAPSHOT"
 
     repositories {
         mavenCentral()
