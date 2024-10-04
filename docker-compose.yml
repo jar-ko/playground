@@ -1,0 +1,8 @@
+name: playground
+
+services:
+  springboot:
+    build: ./springboot
+    ports:
+      - 8080:8080
+      - 5005:5005 # remove debug
