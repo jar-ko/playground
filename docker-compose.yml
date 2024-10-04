@@ -6,3 +6,15 @@ services:
     ports:
       - 8080:8080
       - 5005:5005 # remove debug
+
+  jenkins:
+    image: jenkins/jenkins:2.462.3-alpine-jdk21
+    environment:
+      JENKINS_OPTS: --httpPort=8081
+    ports:
+      - 8081:8081
+    volumes:
+      - jenkins-home:/var/jenkins_home
+
+volumes:
+  jenkins-home:
