@@ -16,5 +16,17 @@ services:
     volumes:
       - jenkins-home:/var/jenkins_home
 
+  postgres:
+    image: postgres:17.0-alpine
+    environment:
+      POSTGRES_USER: playground
+      POSTGRES_PASSWORD: pl4ygr0und
+      POSTGRES_DB: playground
+    ports:
+      - 5432:5432
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+
 volumes:
   jenkins-home:
+  postgres-data:
