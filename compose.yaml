@@ -1,0 +1,20 @@
+services:
+  postgres:
+    image: postgres:18-alpine
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: pguser
+      POSTGRES_PASSWORD: pgpassword
+      POSTGRES_DB: playground
+    restart: always
+
+  rabbitmq:
+    image: rabbitmq:4-management-alpine
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      RABBITMQ_DEFAULT_USER: rabbitmquser
+      RABBITMQ_DEFAULT_PASS: rabbitmqpassword
+    restart: always
