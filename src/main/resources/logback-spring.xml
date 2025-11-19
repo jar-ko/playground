@@ -1,0 +1,30 @@
+<configuration>
+    <include resource="org/springframework/boot/logging/logback/base.xml"/>
+
+    <!-- This appender is for all log entries -->
+    <appender name="app" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="net.logstash.logback.encoder.LoggingEventCompositeJsonEncoder">
+            <!-- Here we rename fields and make sure order/format match our required standard -->
+            <providers>
+                <timestamp>
+                    <fieldName>timestamp</fieldName>
+                    <!-- If the timestamp is not this exact format then elasticsearch blows up due to clash with other systems -->
+                    <pattern>yyyy-MM-dd HH:mm:ss,SSS</pattern>
+                </timestamp>
+                <logLevel/>
+                <mdc>
+                    <includeMdcKeyName>traceId</includeMdcKeyName>
+                    <includeMdcKeyName>spanId</includeMdcKeyName>
+                </mdc>
+                <message/>
+                <stackTrace>
+                    <fieldName>exception</fieldName>
+                </stackTrace>
+            </providers>
+        </encoder>
+    </appender>
+
+    <root level="INFO">
+        <appender-ref ref="app"/>
+    </root>
+</configuration>
