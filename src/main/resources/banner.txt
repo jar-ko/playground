@@ -1,0 +1,4 @@
+####
+## branch: @GIT_BRANCH_NAME@
+## hash: @GIT_COMMIT@
+####
