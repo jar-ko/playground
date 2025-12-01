@@ -39,6 +39,11 @@ dependencies {
     implementation 'net.logstash.logback:logstash-logback-encoder:9.0'
 //    implementation 'org.liquibase:liquibase-core'
 
+    implementation ('org.springdoc:springdoc-openapi-starter-webmvc-ui:2.8.14') {
+        exclude group: "org.apache.commons", module: "commons-lang3"
+    }
+    implementation("org.apache.commons:commons-lang3")
+
     runtimeOnly 'org.postgresql:postgresql'
 
     compileOnly 'org.projectlombok:lombok'
